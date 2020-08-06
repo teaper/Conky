@@ -7,6 +7,6 @@ conky -c ~/.Conky/cpu -d -q &
 conky -c ~/.Conky/mem -d -q &
 conky -c ~/.Conky/network -d -q &
 conky -c ~/.Conky/disk -d -q &
-conky -c ~/.Conky/clock -d -q &
+#conky -c ~/.Conky/clock -d -q &
 conky -c ~/.Conky/arch_logo -d -q &
 #conky -c ~/.Conky/notes &

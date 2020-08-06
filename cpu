@@ -29,8 +29,8 @@ conky.config = {
 	maximum_width = 160,
 
 	alignment = 'top_left',
-	gap_x = 260,
-	gap_y = 422,
+	gap_x = 280,
+	gap_y = 380,
 
 -- -- Graphics settings -- #
 	draw_shades = false,

@@ -1,14 +1,10 @@
 --[[
 Clock Rings by londonali1010 (2009)
-
 This script draws percentage meters as rings, and also draws clock hands if you want! It is fully customisable; all options are described in the script. This script is based off a combination of my clock.lua script and my rings.lua script.
-
 IMPORTANT: if you are using the 'cpu' function, it will cause a segmentation fault if it tries to draw a ring straight away. The if statement near the end of the script uses a delay to make sure that this doesn't happen. It calculates the length of the delay by the number of updates since Conky started. Generally, a value of 5s is long enough, so if you update Conky every 1s, use update_num > 5 in that if statement (the default). If you only update Conky every 2s, you should change it to update_num > 3; conversely if you update Conky every 0.5s, you should use update_num > 10. ALSO, if you change your Conky, is it best to use "killall conky; conky" to update it, otherwise the update_num will not be reset and you will get an error.
-
 To call this script in Conky, use the following (assuming that you save this script to ~/scripts/rings.lua):
 	lua_load ~/scripts/clock_rings-v1.1.1.lua
 	lua_draw_hook_pre clock_rings
-
 Changelog:
 + v1.1.1 -- Fixed minor bug that caused the script to crash if conky_parse() returns a nil value (20.10.2009)
 + v1.1 -- Added colour option for clock hands (07.10.2009)
@@ -102,87 +98,34 @@ settings_table = {
 	},
 
 	{
-                name='cpu',
-                arg='cpu3',
-                max=100,
-                bg_colour=0xffffff,
-                bg_alpha=0.2,
-                fg_colour=0xffffff,
-                fg_alpha=0.5,
-                x=160, y=155,
-                radius=87,
-                thickness=5,
-                start_angle=93,
-                end_angle=208
+        name='cpu',
+        arg='cpu3',
+        max=100,
+        bg_colour=0xffffff,
+        bg_alpha=0.2,
+        fg_colour=0xffffff,
+        fg_alpha=0.5,
+        x=160, y=155,
+        radius=87,
+        thickness=5,
+        start_angle=93,
+        end_angle=208
         },
 
 	{
-                name='cpu',
-                arg='cpu4',
-                max=100,
-                bg_colour=0xffffff,
-                bg_alpha=0.2,
-                fg_colour=0xffffff,
-                fg_alpha=0.5,
-                x=160, y=155,
-                radius=93,
-                thickness=5,
-                start_angle=93,
-                end_angle=208
+        name='cpu',
+        arg='cpu4',
+        max=100,
+        bg_colour=0xffffff,
+        bg_alpha=0.2,
+        fg_colour=0xffffff,
+        fg_alpha=0.5,
+        x=160, y=155,
+        radius=93,
+        thickness=5,
+        start_angle=93,
+        end_angle=208
 		},
-		{
-			name='cpu',
-			arg='cpu5',
-			max=100,
-			bg_colour=0xffffff,
-			bg_alpha=0.2,
-			fg_colour=0xffffff,
-			fg_alpha=0.5,
-			x=160, y=155,
-			radius=99,
-			thickness=5,
-			start_angle=93,
-			end_angle=208
-	},	{
-		name='cpu',
-		arg='cpu6',
-		max=100,
-		bg_colour=0xffffff,
-		bg_alpha=0.2,
-		fg_colour=0xffffff,
-		fg_alpha=0.5,
-		x=160, y=155,
-		radius=105,
-		thickness=5,
-		start_angle=93,
-		end_angle=208
-},	{
-	name='cpu',
-	arg='cpu7',
-	max=100,
-	bg_colour=0xffffff,
-	bg_alpha=0.2,
-	fg_colour=0xffffff,
-	fg_alpha=0.5,
-	x=160, y=155,
-	radius=111,
-	thickness=5,
-	start_angle=93,
-	end_angle=208
-},	{
-	name='cpu',
-	arg='cpu8',
-	max=100,
-	bg_colour=0xffffff,
-	bg_alpha=0.2,
-	fg_colour=0xffffff,
-	fg_alpha=0.5,
-	x=160, y=155,
-	radius=117,
-	thickness=5,
-	start_angle=93,
-	end_angle=208
-},
 	{
 		name='memperc',
 		arg='',
@@ -192,8 +135,8 @@ settings_table = {
 		fg_colour=0xffffff,
 		fg_alpha=0.5,
 		x=160, y=155,
-		radius=93,
-		thickness=40,
+		radius=83,
+		thickness=22,
 		start_angle=212,
 		end_angle=329
 	},
@@ -220,7 +163,7 @@ settings_table = {
 		fg_colour=0xd5dcde,
 		fg_alpha=0,
 		x=177, y=155,
-		radius=118,
+		radius=98,
 		thickness=2,
 		start_angle=75,
 		end_angle=105
@@ -234,7 +177,7 @@ settings_table = {
 		fg_colour=0xffffff,
 		fg_alpha=0,
 		x=266, y=155,
-		radius=320,
+		radius=300,
 		thickness=2,
 		start_angle=84,
 		end_angle=96
@@ -248,7 +191,7 @@ settings_table = {
 		fg_colour=0xffffff,
 		fg_alpha=0.5,
 		x=160, y=155,
-		radius=126,
+		radius=103,
 		thickness=5,
 		start_angle=-120,
 		end_angle=-1.5
@@ -262,7 +205,7 @@ settings_table = {
 		fg_colour=0xffffff,
 		fg_alpha=0.5,
 		x=160, y=155,
-		radius=126,
+		radius=103,
 		thickness=5,
 		start_angle=1.5,
 		end_angle=120

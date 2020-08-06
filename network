@@ -30,7 +30,7 @@ conky.config = {
 
 	alignment = 'top_left',
 	gap_x = 30,
-	gap_y = 650,
+	gap_y = 608,
 
 -- -- Graphics settings -- #
 	draw_shades = false,
@@ -53,9 +53,9 @@ conky.text = [[
 ${font WenQuanY Zen Hei:size=14}NETWORK${font}
 ${font WenQuanY Zen Hei:size=12}${stippled_hr}${font}
 
-Down:$alignr${downspeed enp27s0}/s
-Up:$alignr${upspeed enp27s0}/s
-${downspeedgraph enp27s0 324D23 77B753}
+Down:$alignr${downspeed wlp2s0}/s
+Up:$alignr${upspeed wlp2s0}/s
+${downspeedgraph wlp2s0 51A8DD 7DB9DE}
 
-${upspeedgraph enp27s0 324D23 77B753}
+${upspeedgraph wlp2s0 51A8DD 7DB9DE}
 ]];

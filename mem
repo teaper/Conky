@@ -30,7 +30,7 @@ conky.config = {
 
 	alignment = 'top_left',
 	gap_x = 30,
-	gap_y = 422,
+	gap_y = 380,
 
 -- -- Graphics settings -- #
 	draw_shades = false,
