@@ -1,4 +1,4 @@
-![封面](https://raw.githubusercontent.com/9527tech/conkyrc/master/screenshot.png)
+![封面](https://raw.githubusercontent.com/teaper/Conky/master/screenshot.png)
   
 ### 系统环境  
 * 系统：ArchLinux  
