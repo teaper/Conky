@@ -1,40 +1,78 @@
-<img src="https://raw.githubusercontent.com/9527tech/conkyrc/master/screenshot.png"/>
+![封面](https://raw.githubusercontent.com/9527tech/conkyrc/master/screenshot.png)
+  
+### 系统环境  
+* 系统：ArchLinux  
+* 桌面：GNOME  
+* 核心：4  
+* 线程：4  
+  
+### 安装 Conky  
+这项目是 Conky 的主题包，所以需要先安装 Conky-lua  
+```bash
+yay -S conky-lua
+```
+然后会出现多个包，这里就说三个
+* `aur/conky-nvidia 1.11.3-1 (+123 0.27%)` 支持 Nvidia 的 conky 包  
+* `aur/conky-lua 1.11.3-1 (+50 0.71%)` 支持 Lua 的 conky 包  
+* `aur/conky-lua-nv 1.11.3-2 (+118 0.87%)` 支持 Lua 和 Nvidia 的 conky 包  
 
+这里选择 `aur/conky-lua 1.11.3-1 (+50 0.71%)` 这个，输入它的编号回车，输入 `y` 回车  
+安装成功之后再安装 `conky-manager` 管理器  
+```bash
+sudo pacman -S conky-manager
+```
+再开始菜单中运行 `conky-manager` ，使用以下命令刷新字体缓存
+```bash
+fc-cache -vf
+```
 
-额,,怎么说呢,,
-这份conky的配置文件,我是从网上找的,能够完美的运行在我的archlinux+gnome环境下
+### 使用该主题  
+克隆本项目到 `.Conky` 隐藏文件夹，本主题文件在 [deviantart](https://www.deviantart.com/trollpunny/art/Conky-Rings-Revamped-591137228) 也可以下载到  
+```bash
+git clone git@github.com:teaper/Conky.git ~/.Conky
+cd ~/.Conky #进入文件夹
+sh startconky.sh #运行启动脚本
+```
 
-我修改了一些小问题,比如大黑边啊,,比如只能显示4个核心,有些错位,,,,
-因为我的机子是4c8t的cpu所以,,,希望你最好和我的一样,,,这样就应该不会有错,,,,(我这里有份2c4t或4c4t的文件,,,,哎嘿嘿,,要的q我就完事了,)
-(PS.现在在本项目的4t分支里有已经一份2c/4t或4c/4t的配置文件了)
+### 修改模块
+可以修改对应的模块代码文件，例如时钟
+```bash
+vim clock #编辑clock文件
+```
+把 `own_window yes` 改成 `own_window no` 即可关闭时间
+模块的具体参数可以根据[参考文档](http://conky.sourceforge.net/docs.html)配置
 
+### 网络和存储模块
+运行之后，如果 `NETWORK` 和 `DISK` 模块无效果，需要分别指定你自己的网卡和硬盘
+```bash
+-----------network文件----------
+Down:$alignr${downspeed wlp2s0}/s   #wlp2s0就是我的网卡，不知道网卡名字可以使用ifconfig查看
+Up:$alignr${upspeed wlp2s0}/s
+${downspeedgraph wlp2s0 324D23 77B753}  #324D23 77B753 是颜色渐变改成 51A8DD 7DB9DE
 
+${upspeedgraph wlp2s0 324D23 77B753}
+```
+```bash
+-----------disk文件----------
+Read:$alignr${diskio_read /dev/sda}/s  #sda是我固态盘(不是分区)，不知道名字使用lsblk查看
+Write:$alignr${diskio_write /dev/sda}/s
+${diskiograph_read /dev/sda 324D23 77B753} 
 
-本项目一共4个分支,非别为:master,4t;other_4t,other_8
-请根据你的实际情况切换...前两个,要是rings部件错位,就用后面两个
+${diskiograph_write /dev/sda 324D23 77B753}
+```
 
-
-然后的话,,以前有一个notes功能,,,用来todolist,对我来说没啥用,我就给关了,然后.加了个网络显示功能
-
-然后这conky这天坑,,,开机启动和手动启动绘制出的效果居然不一样,,我日,,
-
-
-额,,,讲讲怎么使用吧,,,,,首先,克隆到~/.Conky
-
-然后需要开启一个conky对Lua的支持,,,archlinux用户呢可以装aur里面的conky-lua,至于其他linux用户,sorry不好意思,我不知道怎么去装,,还请自行百度,
-(PS:额,conky和conky-lua冲突,需要卸载conky)
-
-之后请运行~/.Conky/startconky.sh就能看到效果,,,(PS:开机启动和手动启动绘制出的效果好像有点不一样,反正我这是这样的,我也不知道啥原因,)
-
-开机启动的话,,,用~/.config/autostart/conky.desktop的方法好像不行,,,,
-
-(PS:配合conky-manage使用给佳哟!,,,其实是因为有个字体装conky-manage的时候才有,就是大时间的那个字体,,)
-
-
-所以我是在~/.xporfile写入的sh ~/.Conky/startconky.sh
-
-
-好像也没啥其他要说的了,,,就这样吧
-
+### 开机自启
+```bash
+sudo gedit ~/.config/autostart/conky.desktop    #创建自启快捷方式
+```
+内容如下
+```bash
+[Desktop Entry]
+Type=Application
+Name=conky
+Exec=/home/teaper/.Conky/startconky.sh --daemonize --pause=5
+StartupNotify=false
+Terminal=false
+```
 
 

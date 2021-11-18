@@ -56,6 +56,10 @@ ${font WenQuanY Zen Hei:size=12}${stippled_hr}${font}
 Down:$alignr${downspeed wlp2s0}/s
 Up:$alignr${upspeed wlp2s0}/s
 ${downspeedgraph wlp2s0 51A8DD 7DB9DE}
-
 ${upspeedgraph wlp2s0 51A8DD 7DB9DE}
+
+Down:$alignr${downspeed enp3s0}/s
+Up:$alignr${upspeed enp3s0}/s
+${downspeedgraph enp3s0 51A8DD 7DB9DE}
+${upspeedgraph enp3s0 51A8DD 7DB9DE}
 ]];
